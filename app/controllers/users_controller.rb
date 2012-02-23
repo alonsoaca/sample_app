@@ -47,13 +47,6 @@ class UsersController < ApplicationController
   
   private 
   
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Please sign in."
-      end
-    end
-    
     def correct_user
       @user = User.find(params[:id])
       logger.info { "Will check if the user: #{@user} is the same as #{current_user} " }
